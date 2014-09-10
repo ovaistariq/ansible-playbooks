@@ -1,0 +1,8 @@
+---
+# Need to specify the mysql version as that is going to be used to set the 
+# appropriate version specific parameters
+mysql_major_version: "5.6"
+mysql_full_version: "5.6.20-1"
+
+# Do we need to run mysql_upgrade
+mysql_do_upgrade: True

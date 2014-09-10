@@ -1,0 +1,5 @@
+---
+- name: upgrade MySQL instance in-place
+  hosts: all
+  roles:
+    - mysql
