@@ -50,6 +50,6 @@ id_rsa.pub
 
 # Ansible specific variable files #
 ##################################
-playbooks/*/hosts
-playbooks/*/group_vars/*
-!playbooks/*/group_vars/*.sample
+*/hosts
+*/group_vars/*
+!*/group_vars/*.sample
