@@ -1,0 +1,14 @@
+---
+# Need to specify the mysql version as that is going to be used to set the 
+# appropriate version specific parameters
+mysql_major_version: "5.1"
+mysql_full_version: "5.1.72-1"
+
+# Specify the MySQL master host
+# the host must be known to ansible and must match the hostname 
+# in ansible inventory
+mysql_master_host: master_hostname
+
+# replication related
+mysql_replication_user: changeme
+mysql_replication_password: changeme

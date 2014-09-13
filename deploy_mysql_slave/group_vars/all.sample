@@ -1,0 +1,17 @@
+---
+# XtraBackup username and password
+xtrabackup_user: changeme
+xtrabackup_password: changeme
+
+# Various facts about the machine
+ip_address: '{{ ansible_default_ipv4.address }}'
+memory_mb: '{{ ansible_memtotal_mb }}'
+
+# Common MySQL variables
+mysql_socket: "/data/mysql_data/mysql.sock"
+mysql_root_password: changeme
+
+# pt-table-checksum related variables
+checksum_user: changeme
+checksum_password: changeme
+
