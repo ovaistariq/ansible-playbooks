@@ -1,4 +1,13 @@
 ---
+# MySQL username and password used during the benchmark run
+mysql_user: "changeme"
+mysql_password: "changeme"
+
+# How long to capture the production workload
+# which will then be replayed during the benchmark
+# runs in read-only mode
+benchmark_seconds: 300
+
 # Specify the MySQL master host
 # the host must be known to ansible and must match the hostname
 # in ansible inventory
