@@ -1,0 +1,7 @@
+---
+- name: benchmark a MySQL server
+  hosts: all
+  serial: 1
+  max_fail_percentage: 1
+  roles:
+    - mysql_benchmark
