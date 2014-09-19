@@ -1,0 +1,54 @@
+
+# nagios
+am2vnag01
+
+# EMEA ams1ppod01 pod - LIA
+[ams1ppod01]
+ams1ppod01m1
+ams1ppod01m2
+ams1ppod01s1
+ams1ppod01s2
+
+# EMEA ams1ppod02 pod - LIA
+[ams1ppod02]
+ams1ppod02m1
+ams1ppod02m2
+ams1ppod02s1
+ams1ppod02s2
+
+# EMEA ams1pdb03 pod - LSW
+[ams1pdb03]
+ams1pdb03m1
+ams1pdb03m2
+
+# EMEA ams1ppod04 - Migros
+[ams1ppod04]
+ams1ppod04m1
+ams1ppod04m2
+
+# EMEA ams1ppod05 - LIA
+[ams1ppod05]
+ams1ppod05m1
+ams1ppod05m2
+ams1ppod05s1
+
+# EMEA pod5 pod - LIA
+[pod5]
+pod5m1
+pod5m2
+pod5bu
+pod5etl
+
+# EMEA pod6 pod - EMEA warehouse DW 1
+[pod6]
+pod6m1
+pod6m2
+pod6bu
+
+# test server
+sm529
+
+# Staging servers
+[ams1sdb02]
+ams1sdb02m1
+ams1sdb02m2

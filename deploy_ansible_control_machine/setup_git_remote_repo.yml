@@ -1,0 +1,55 @@
+---
+- name: setup git remote repositories on control machine
+
+  hosts: hostname
+
+  tasks:
+    
+    - name: setup the main directory
+      file: path=/etc/ansible/remote_repo state=directory mode=0644
+
+    - name: setup remote bare git repos | create directories
+      file: path=/etc/ansible/remote_repo/{{ item }}.git state=directory mode=0644
+      with_items:
+        - "ansible-playbooks"
+        - "ansible-plugins"
+        - "ansible-roles"
+
+    - name: setup remote bare git repos | initialize repos
+      command: git init --bare chdir=/etc/ansible/remote_repo/{{ item }}.git
+      with_items:
+        - "ansible-playbooks"
+        - "ansible-plugins"
+        - "ansible-roles"
+
+    - name: create actual directories that will store repo content
+      file: path=/etc/ansible/{{ item }} state=directory mode=0644
+      with_items:
+        - "ansible-playbooks"
+        - "ansible-plugins"
+        - "ansible-roles"
+
+    - name: add git post-receive hooks
+      template: src=templates/git/hooks/post-receive dest=/etc/ansible/remote_repo/{{ item }}.git/hooks/post-receive mode=0755
+      with_items:
+        - "ansible-playbooks"
+        - "ansible-plugins"
+        - "ansible-roles"
+
+    - name: setup git remotes
+      local_action: command git remote add {{ hostvars[inventory_hostname]['ansible_hostname'] }} ssh://{{ hostvars[inventory_hostname]['ansible_hostname'] }}/etc/ansible/remote_repo/{{ item }}.git
+      args: 
+        chdir: /var/lib/projects/{{ item }}/
+      with_items:
+        - "ansible-playbooks"
+        - "ansible-plugins"
+        - "ansible-roles"
+
+    - name: push master branch to remote repos
+      local_action: command git push {{ hostvars[inventory_hostname]['ansible_hostname'] }} +master:refs/heads/master
+      args:
+        chdir: /var/lib/projects/{{ item }}/
+      with_items:
+        - "ansible-playbooks"
+        - "ansible-plugins"
+        - "ansible-roles"

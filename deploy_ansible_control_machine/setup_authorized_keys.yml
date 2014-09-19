@@ -1,0 +1,10 @@
+---
+- name: setup SSH authorized_key to allow access from ansible control machine
+
+  hosts: all
+
+  tasks:
+    
+    - name: setup the authorized_key
+      authorized_key: user=root key="{{ lookup('file', 'files/key/id_rsa.pub') }}"
+

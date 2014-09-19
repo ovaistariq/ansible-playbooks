@@ -1,0 +1,33 @@
+---
+- name: setup ansible control machine
+
+  hosts: hostname
+
+  tasks:
+    
+    - name: setup the directory to download ansible
+      file: path=/usr/local/src/ansible-1.6.6 state=absent
+
+    - name: fetch ansible version 1.6.6 from github
+      git: repo=https://github.com/ansible/ansible.git dest=/usr/local/src/ansible-1.6.6 version=v1.6.6
+
+    - name: install required tools
+      yum: name={{ item }} state=installed
+      with_items:
+        - rpm-build
+        - gmp-devel
+        - python-hashlib
+      register: tools_install
+
+    - name: make and install ansible
+      shell: make install chdir=/usr/local/src/ansible-1.6.6
+      when: tools_install|success
+
+    - name: setup ansible configuration
+      copy: src=files/ansible.cfg dest=/etc/ansible mode=0644
+
+    - name: setup ansible inventory | create directory
+      file: path=/etc/ansible/inventory state=directory mode=0644
+
+    - name: setup ansible inventory | create the inventory files
+      copy: src=files/inventory/ dest=/etc/ansible/inventory mode=0644

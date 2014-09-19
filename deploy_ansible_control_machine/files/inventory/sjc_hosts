@@ -1,0 +1,115 @@
+
+# mysql-proxy | crib
+sv5putil03
+
+# MySQL backups central server
+sjc1pbu03
+
+# nagios
+sv3pnag01
+
+[sv5ppod01]
+sv5ppod01m1
+sv5ppod01m2
+sv5ppod01bu
+sv5ppod01etl
+
+# SV5 sv5ppod02 pod - LIA
+[sv5ppod02]
+sv5ppod02m1
+sv5ppod02m2
+sv5ppod02bu
+sv5ppod02etl
+
+# SV5 APAC/EMA pod
+[sv5ppod06]
+sv5ppod06bu
+sv5ppod06etl
+
+# SV5 sv5ppod09 pod - LIA
+[sv5ppod09]
+sv5ppod09m1
+sv5ppod09m2
+sv5ppod09bu
+sv5ppod09etl
+
+# SV5 sv5ppod12 pod - LIA
+[sv5ppod12]
+sv5ppod12m1
+sv5ppod12m2
+sv5ppod12bu
+sv5ppod12etl
+
+# SJC sjc1ppod01 pod - LIA
+[sjc1ppod01]
+sjc1ppod01m1
+sjc1ppod01m2
+sjc1ppod01s1
+sjc1ppod01s2
+
+# SJC sjc1ppod03 pod - LIA
+[sjc1ppod03]
+sjc1ppod03m1
+sjc1ppod03m2
+sjc1ppod03s1
+sjc1ppod03s2
+
+# SJC sjc1ppod06 pod - LIA
+[sjc1ppod06]
+sjc1ppod06m1
+sjc1ppod06m2
+sjc1ppod06s1
+sjc1ppod06s2
+
+# SJC sjc1ppod07 pod - LIA | Univision
+[sjc1ppod07]
+sjc1ppod07m1
+sjc1ppod07m2
+pm26
+pm32
+
+# SJC sjc1ppod08 pod - LIA
+[sjc1ppod08]
+sjc1ppod08m1
+sjc1ppod08m2
+sjc1ppod08s1
+sjc1ppod08s2
+
+# SJC sjc1ppod09 pod - LIA (new one replacing sv5ppod09 pod)
+[sjc1ppod09]
+sjc1ppod09m1
+sjc1ppod09m2
+
+# SJC sjc1ppod11 pod - LSW
+[sjc1ppod11]
+sjc1ppod11m1
+sjc1ppod11m2
+sjc1ppod11s1
+
+# SJC pod4 pod - US warehouse DW 1
+[pod4]
+pod4m1
+pod4m2
+pod4bu
+
+# SV3 sv3ppod5 pod - US warehouse DW 2
+[sv3ppod5]
+sv3ppod5m1
+sv3ppod5m2
+sv3ppod5bu
+
+# SV3 Stage pod - no idea about the replication hierarchy
+[sv3spod01]
+sv3spod01m1
+sv3spod01m2
+sjc1sdb02m2
+sjc1sdb03m1
+
+# Darren's testing server
+forodb
+
+# Test servers used during fire drills
+[sjc1fdb01]
+sjc1fdb01m1
+sjc1fdb01m2
+
