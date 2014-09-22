@@ -1,0 +1,9 @@
+---
+- name: setup MySQL slave using XtraBackup
+  hosts: all
+  serial: 1
+  max_fail_percentage: 1
+  roles:
+    - xtrabackup_slave
+    - xtrabackup_replication
+    - mysql_upgrade
