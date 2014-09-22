@@ -4,5 +4,10 @@
 mysql_major_version: "5.6"
 mysql_full_version: "5.6.20-1"
 
-# Do we need to run mysql_upgrade
-mysql_do_upgrade: True
+# Various facts about the machine
+ip_address: '{{ ansible_default_ipv4.address }}'
+memory_mb: '{{ ansible_memtotal_mb }}'
+
+# Common MySQL variables
+mysql_socket: "/data/mysql_data/mysql.sock"
+mysql_root_password: "changeme"
