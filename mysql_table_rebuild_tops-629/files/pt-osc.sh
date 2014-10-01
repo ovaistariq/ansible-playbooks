@@ -28,6 +28,7 @@ mysqladmin_bin="/usr/bin/mysqladmin"
 mysql_bin="/usr/bin/mysql"
 pt_osc_bin="/usr/bin/pt-online-schema-change"
 
+# Other variables
 sql_to_fetch_tables="select c.table_schema, c.table_name, 
                         sum(data_length+index_length)/1024/1024/1024 as table_size_gb 
                 from columns as c inner join tables as t using (table_schema, table_name) 
@@ -36,7 +37,8 @@ sql_to_fetch_tables="select c.table_schema, c.table_name,
                         and c.table_schema not in ('information_schema', 'mysql', 'performance_schema') and 
                         t.engine='innodb' 
                 group by c.table_schema, c.table_name 
-                order by table_size_gb asc limit 5"
+                order by table_size_gb asc"
+
 
 # Function definitions
 function vlog() {
@@ -170,4 +172,14 @@ while [[ "$(get_alter_threads_count)" != "0" ]]
 do
     sleep 1
 done
+
+# Show stats related to table rebuilds failure and success
+vlog "Table rebuild summary:"
+echo "Total tables to rebuild: " $(grep -c Rebuilding ${log_file})
+echo "Tables rebuilt successfully: " $(grep -c SUCCESSFULLY ${log_file})
+echo "Tables rebuilt failed: " $(grep -c FAILED ${log_file})
+echo
+echo "Following tables failed to be rebuilt:"
+echo "--------------------------------------"
+awk '/FAILED/ {print $7}' ${log_file}
 
