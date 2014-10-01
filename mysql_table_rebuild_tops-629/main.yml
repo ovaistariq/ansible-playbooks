@@ -1,0 +1,24 @@
+---
+- name: MySQL online alter tables with TEXT, BLOB or long VARCHAR columns
+
+  hosts: all
+
+  tasks:
+    
+    - name: ensure Percona repository is installed
+      yum: name=http://www.percona.com/downloads/percona-release/percona-release-0.0-1.x86_64.rpm state=present
+
+    - name: ensure Percona toolkit is installed
+      yum: name=percona-toolkit state=latest
+
+    - name: setup configuration file for pt-online-schema-change
+      copy: src=templates/pt-online-schema-change.conf dest=/root/.pt-online-schema-change.conf owner=root group=root mode=0600
+
+    - name: setup pt-online-schema-change plugin | create directory
+      file: path=/etc/percona-toolkit/plugins state=directory mode=0644
+
+    - name: setup pt-online-schema-change plugin | place plugin file in place
+      copy: src=files/pt-osc-stop-slave-fk-drop-swap.pl dest=/etc/percona-toolkit/plugins/pt-osc-stop-slave-fk-drop-swap.pl owner=root group=root mode=0644
+
+    - name: execute online alter script
+      script: files/pt-osc.sh
