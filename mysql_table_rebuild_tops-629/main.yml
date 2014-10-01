@@ -2,6 +2,8 @@
 - name: MySQL online alter tables with TEXT, BLOB or long VARCHAR columns
 
   hosts: all
+  max_fail_percentage: 10
+  serial: 10
 
   tasks:
     
