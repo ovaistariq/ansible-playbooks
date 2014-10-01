@@ -8,6 +8,7 @@ podname=$1
 if [[ -z ${podname} ]] || [[ ! -e ${script_root}/hosts.${podname} ]]
 then
     echo "Podname was not provided, could not load the inventory"
+    exit 22
 fi
 
 ansible-playbook -i ${script_root}/hosts.${podname} ${script_root}/main.yml --list-hosts
