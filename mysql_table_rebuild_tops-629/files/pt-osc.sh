@@ -97,7 +97,7 @@ function do_online_alter() {
     ${pt_osc_bin} h=localhost,D=${db},t=${table} \
         --alter "engine=innodb" --alter-foreign-keys-method drop_swap \
         --critical-load Threads_running=5000 --recursion-method none \
-        --set-vars sql_log_bin=0 --plugin ${osc_plugin} \
+        --set-vars "sql_log_bin=0,binlog_format=row" --plugin ${osc_plugin} \
         --progress percentage,1 --execute &> ${table_rebuild_log}
 
     ret_code=${PIPESTATUS[0]}
