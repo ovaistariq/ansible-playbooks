@@ -1,7 +1,7 @@
 #!/bin/bash -u
 
 # Configuration options
-concurrency=6
+concurrency=4
 
 script_root=$(dirname $(readlink -f $0))
 current_datetime=$(date +%Y_%m_%d_%H_%M_%S)
@@ -138,7 +138,7 @@ function do_online_alter() {
         --alter "engine=innodb" --alter-foreign-keys-method drop_swap \
         --critical-load Threads_running=5000 --recursion-method none \
         --set-vars "sql_log_bin=0,binlog_format=row" --plugin ${osc_plugin} \
-        --no-check-plan --progress percentage,1 --dry-run &> ${table_rebuild_log}
+        --no-check-plan --progress percentage,1 --execute &> ${table_rebuild_log}
 
     ret_code=${PIPESTATUS[0]}
     if (( ${ret_code} != 0 )); then
