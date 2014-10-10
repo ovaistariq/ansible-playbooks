@@ -1,0 +1,7 @@
+---
+- name: test out MySQL server after upgrade
+  hosts: all
+  serial: 1
+  max_fail_percentage: 1
+  roles:
+    - { role: '/etc/ansible/ansible-roles/mysql_tests' }
