@@ -4,5 +4,4 @@
   serial: 1
   max_fail_percentage: 1
   roles:
-    - percona_toolkit
     - mysql_tests
