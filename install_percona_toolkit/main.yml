@@ -1,0 +1,5 @@
+---
+- name: setup Percona Toolkit
+  hosts: all
+  roles:
+    - percona_toolkit

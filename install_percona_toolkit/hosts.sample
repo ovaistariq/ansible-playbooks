@@ -1,0 +1,9 @@
+[pod_name]
+hostname1
+hostname2
+
+[pod_name:vars]
+pt_read_only_user=read_only_user
+pt_read_only_password=changeme
+pt_read_write_user=read_write_user
+pt_read_write_password=changeme
