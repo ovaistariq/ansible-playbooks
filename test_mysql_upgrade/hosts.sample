@@ -30,6 +30,7 @@ output_dir=/var/lib/mysql_tests/pod_name
 # Config options related to which tests 
 run_workload_replay_test=yes
 run_pt_upgrade_test=yes
+do_cleanup_after_tests=yes
 
 # Config options for percona-toolkit tools
 pt_read_only_user=read_only_user
