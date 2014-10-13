@@ -13,6 +13,9 @@ fi
 
 ansible-playbook -i ${script_root}/hosts.${podname} ${script_root}/main.yml --list-hosts
 
+ret_code=$?
+(( ${ret_code} != 0 )) && exit ${ret_code}
+
 proceed_with_play=
 echo -n 1>&2 "Would you like to proceed with running the playbook [yes/no]: "
 read proceed_with_play
