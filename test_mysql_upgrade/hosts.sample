@@ -12,10 +12,6 @@ mysql_master_host=master_hostname
 # in ansible inventory
 mysql_compare_host=slave_hostname
 
-# Common MySQL variables
-mysql_socket=socket_path
-mysql_root_password=changeme
-
 # MySQL username and password used during the benchmark run
 mysql_ro_username=some_username
 mysql_ro_password=some_password
@@ -23,10 +19,16 @@ mysql_ro_password=some_password
 # How long to capture the production workload
 # which will then be replayed during the benchmark
 # runs in read-only mode
-benchmark_seconds=300
+benchmark_seconds=30
 
 # The directory on the target server to store temporary files needed by benchmark
-target_tmpdir=/tmp
+target_tmpdir=/tmp/mysql_tests
 
 # The directory to store the benchmark results to
 output_dir=/var/lib/mysql_tests/pod_name
+
+# Config options for percona-toolkit tools
+pt_read_only_user=read_only_user
+pt_read_only_password=changeme
+pt_read_write_user=read_write_user
+pt_read_write_password=changeme

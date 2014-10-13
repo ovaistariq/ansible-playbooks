@@ -4,4 +4,5 @@
   serial: 1
   max_fail_percentage: 1
   roles:
-    - { role: '/etc/ansible/ansible-roles/mysql_tests' }
+    - percona_toolkit
+    - mysql_tests
