@@ -1,0 +1,27 @@
+[pod_name]
+hostname
+
+[pod_name:vars]
+# Specify the hostname of the MySQL server that will be used
+# as the source of the dump.
+# The host must be known to ansible and must match the hostname
+# in ansible inventory
+backup_source_host=backup_source_hostname
+
+# MySQL username and password for the MySQL user that is used
+# for the dump and reload
+mysql_username=some_username
+mysql_password=some_password
+
+# MySQL username and password for the MySQL user that is used
+# by replication
+mysql_repl_username=some_username
+mysql_repl_password=some_password
+
+# The temporary directory on the target host to store the 
+# dump and reload related data
+output_dir=/data/mysql_data/mysql_replication_slave
+
+# Should the target_host be created as a child of the
+# backup_source_host or as its sibiling
+backup_source_is_master=no

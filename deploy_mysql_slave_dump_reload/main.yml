@@ -1,0 +1,7 @@
+---
+- name: deploy MySQL slave using dump and reload
+  hosts: all
+  serial: 1
+  max_fail_percentage: 1
+  roles:
+    - mysql_replication_slave
