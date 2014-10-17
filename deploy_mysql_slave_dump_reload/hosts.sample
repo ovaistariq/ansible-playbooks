@@ -19,8 +19,12 @@ mysql_repl_username=some_username
 mysql_repl_password=some_password
 
 # The temporary directory on the target host to store the 
-# dump and reload related data
-output_dir=/data/mysql_data/mysql_replication_slave
+# dump data
+target_tmp_dir=/data/mysql_data/mysql_replication_slave
+
+# The directory on the host running the playbook where 
+# dump and reload logs will be stored
+output_dir=/var/lib/mysql_automation_logs/mysql_replication_slave
 
 # Should the target_host be created as a child of the
 # backup_source_host or as its sibiling
