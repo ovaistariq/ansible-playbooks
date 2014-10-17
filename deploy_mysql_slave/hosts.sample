@@ -14,6 +14,11 @@ backup_source_host=backup_hostname
 # in ansible inventory
 mysql_master_host=master_hostname
 
+# Specify the MySQL credentials for the MySQL user that will be used to
+# configure replication by running CHANGE MASTER
+mysql_username=changeme
+mysql_password=changeme
+
 # replication related
 mysql_replication_user=changeme
 mysql_replication_password=changeme
