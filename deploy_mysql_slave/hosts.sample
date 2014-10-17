@@ -1,2 +1,19 @@
-[hostgroup_name]
+[pod_name]
 hostname
+
+[pod_name:vars]
+# Specify the MySQL backup host
+# the host must either be the same as mysql_master_host or
+# must be a slave of mysql_master_host
+# the host must be known to ansible and must match the hostname
+# in ansible inventory
+backup_source_host=backup_hostname
+
+# Specify the MySQL master host
+# the host must be known to ansible and must match the hostname
+# in ansible inventory
+mysql_master_host=master_hostname
+
+# replication related
+mysql_replication_user=changeme
+mysql_replication_password=changeme

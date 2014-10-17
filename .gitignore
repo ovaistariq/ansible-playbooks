@@ -54,3 +54,7 @@ id_rsa.pub
 !*/hosts.sample
 */group_vars/*
 !*/group_vars/*.sample
+
+# IDE generated files #
+#######################
+.idea
