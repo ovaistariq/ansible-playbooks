@@ -1,6 +1,8 @@
 ---
 - name: ensure percona-toolkit is installed
   hosts: 127.0.0.1
+  vars_files:
+    - hosts.localhost
   connection: local
   roles:
     - percona_toolkit
