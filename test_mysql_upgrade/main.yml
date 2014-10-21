@@ -3,7 +3,7 @@
   hosts: 127.0.0.1
   connection: local
   roles:
-  	- percona_toolkit
+    - percona_toolkit
 
 - name: test out MySQL server after upgrade
   hosts: all
