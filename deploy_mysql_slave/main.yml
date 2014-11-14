@@ -5,4 +5,3 @@
   max_fail_percentage: 1
   roles:
     - xtrabackup_slave
-    - xtrabackup_replication

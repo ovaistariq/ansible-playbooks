@@ -20,5 +20,5 @@ mysql_username=changeme
 mysql_password=changeme
 
 # replication related
-mysql_replication_user=changeme
-mysql_replication_password=changeme
+mysql_repl_username=changeme
+mysql_repl_password=changeme
