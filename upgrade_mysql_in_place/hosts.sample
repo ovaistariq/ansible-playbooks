@@ -8,5 +8,5 @@ mysql_major_version="5.6"
 mysql_full_version="5.6.20-1"
 
 # Common MySQL variables
-mysql_socket="/data/mysql_data/mysql.sock"
+mysql_socket="/var/lib/mysql/mysql.sock"
 mysql_root_password="changeme"
