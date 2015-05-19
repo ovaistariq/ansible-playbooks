@@ -1,6 +1,8 @@
 ---
 - name: setup MySQL slave using XtraBackup
   hosts: all
+  sudo: yes
+  sudo_user: root
   serial: 1
   max_fail_percentage: 1
   roles:
